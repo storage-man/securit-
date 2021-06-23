@@ -17,7 +17,9 @@ cd /mnt/sdcard
 # on exit le shell du telephone
 exit
 # on install l'application diva beta qui est version beta dangereuse pour le telephone portable 
-wget https://github.com/tjunxiang92/Android-Vulnerabilities/blob/master/diva-beta.apk
+wget https://github.com/tjunxiang92/Android-Vulnerabilities/blob/master/diva-beta.apk?raw=true
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore diva-beta.apk alias_name
 adb install diva-beta.apk
 # on entre la deuxieme fois dans le shell du telephone
 adb shell
