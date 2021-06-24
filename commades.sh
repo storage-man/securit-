@@ -79,3 +79,7 @@ ls
 #on visualise le source code de l'application 
 cd jakhar/aseem/diva
 ls
+# on visulaise le contenu de manifest avec dexdump
+unzip d diva diva-beta.apk
+dexdump -l plain classes.dex | less
+dexdump -l xml classes.dex | less 
